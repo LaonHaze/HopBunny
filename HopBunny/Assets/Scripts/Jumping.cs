@@ -12,20 +12,24 @@ public class Jumping : MonoBehaviour {
     {
         rb = collision.collider.GetComponent<Rigidbody2D>();
         bunnyanim = collision.collider.GetComponentInChildren<Animator>();
+        float relativevel = collision.relativeVelocity.y;
 
         if (rb != null)
         {
-            StartCoroutine(JumpAnim());
+            StartCoroutine(JumpAnim(relativevel));
         }
     }
 
-    IEnumerator JumpAnim()
+    IEnumerator JumpAnim(float relativevel)
     {
-        bunnyanim.SetTrigger("touchDown");
+        if(relativevel <= 0f)
+        {
+            bunnyanim.SetTrigger("touchDown");
+        }
         yield return new WaitForSeconds(seconds: 0.225f);
         Vector2 velocity = rb.velocity;
         velocity.y = jumpForce;
         rb.velocity = velocity;
-        //gameObject.SetActive(false);
+        gameObject.SetActive(false);
     }
 }

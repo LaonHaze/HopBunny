@@ -15,5 +15,10 @@ public class CameraFollow : MonoBehaviour {
             Vector3 newPos = new Vector3(transform.position.x, target.position.y, transform.position.z);
             transform.position = Vector3.SmoothDamp(transform.position, newPos, ref currentVelocity, smoothSpeed*Time.deltaTime);
         }
-	}
+        else if (target.position.y < transform.position.y)
+        {
+            Vector3 newPos = new Vector3(transform.position.x, target.position.y, transform.position.z);
+            transform.position = Vector3.SmoothDamp(transform.position, newPos, ref currentVelocity, smoothSpeed * Time.deltaTime);
+        }
+    }
 }
