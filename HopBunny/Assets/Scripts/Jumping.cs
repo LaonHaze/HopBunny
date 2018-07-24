@@ -5,8 +5,18 @@ using UnityEngine;
 public class Jumping : MonoBehaviour {
 
     public float jumpForce = 15f;
+    public int score = 10;
+    public GameObject platformDet;
     Rigidbody2D rb;
     Animator bunnyanim;
+
+    void Update()
+    {
+        if(transform.position.y < (Camera.main.gameObject.transform.position.y - 8f))
+        {
+            gameObject.SetActive(false);
+        }
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -31,5 +41,7 @@ public class Jumping : MonoBehaviour {
         velocity.y = jumpForce;
         rb.velocity = velocity;
         gameObject.SetActive(false);
+        ScoreManager.setScore(score);
+        
     }
 }

@@ -20,12 +20,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4053801031840832}
   - component: {fileID: 212367030658256520}
-  - component: {fileID: 114667204080616978}
   - component: {fileID: 68715834087401280}
   - component: {fileID: 251787431763898432}
+  - component: {fileID: 114667204080616978}
   m_Layer: 0
   m_Name: Carrot
-  m_TagString: Untagged
+  m_TagString: Carrot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,6 +75,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 15
+  score: 10
+  platformDet: {fileID: 0}
 --- !u!212 &212367030658256520
 SpriteRenderer:
   m_ObjectHideFlags: 1
