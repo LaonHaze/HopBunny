@@ -8,7 +8,7 @@ public class LevelGenerator : MonoBehaviour {
     public Transform genPoint;
     
     public float lvlWidth = 2f;
-    public float minY = 2f;
+    public float minY = 1.5f;
     public float maxY = 3f;
     
 	void Update () {

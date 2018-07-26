@@ -260,7 +260,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 403910d80b71a0b4f83733f7fd7c357e, type: 3}
+      m_Icon: {fileID: 2800000, guid: b7f47f6bf2d7d4e41a0b2e87e52bc7c3, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
@@ -750,7 +750,7 @@ PlayerSettings:
   apiCompatibilityLevel: 2
   cloudProjectId: e810680f-6c21-4e5b-94c8-45295a1e5cfd
   projectName: HopBunny
-  organizationId: jban0811
+  organizationId: banjy
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
