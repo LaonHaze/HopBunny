@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bunny : MonoBehaviour {
     Animator bunnyanim;
+    public GameManager gameManager;
 
     void Start()
     {
@@ -16,6 +17,8 @@ public class Bunny : MonoBehaviour {
         {
             bunnyanim.SetTrigger("touchDown");
         }
+        
+        
         
     }
 }

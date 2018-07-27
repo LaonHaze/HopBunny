@@ -7,16 +7,40 @@ public class ScoreManager : MonoBehaviour {
     static int score;
     public Text scoreText;
     public Text highScoreText;
+
     private static int highScore;
+    private static bool doubleUp;
 	// Use this for initialization
 	void Start () {
         score = 0;
+        doubleUp = false;
         loadHighScore();
 	}
 	
 	public static void setScore(int thisScore)
     {
-        score += thisScore;
+        if(doubleUp)
+        {
+            score += (thisScore*2);
+        } else
+        {
+            score += thisScore;
+        }
+        
+    }
+    public static bool GetDouble()
+    {
+        return doubleUp;
+    }
+
+    public static void SetDouble()
+    {
+        doubleUp = true;
+    }
+
+    public static void NoDouble()
+    {
+        doubleUp = false;
     }
 
     public static void resetScore()

@@ -35,14 +35,21 @@ public class GameManager : MonoBehaviour {
 
     public void Restart()
     {
+        Collider2D cd = thePlayer.GetComponent<Collider2D>();
+        Animator anim = thePlayer.GetComponentInChildren<Animator>();
+
+        anim.SetBool("dead", false);
+        cd.enabled = true;
         thePlayer.SetActive(false);
         objPool.SetAllInactive();
         lvlGen.SetActive(false);
+
         Camera.main.transform.position = startPointCam;
         thePlayer.transform.position = startPointPlayer;
         lvlGen.transform.position = startPointGen;
         ScoreManager.saveHighScore();
         ScoreManager.resetScore();
+
         startPlatform.SetActive(true);
         thePlayer.SetActive(true);
         lvlGen.SetActive(true);
@@ -54,7 +61,7 @@ public class GameManager : MonoBehaviour {
         startPanel.SetActive(false);
         highScore.SetActive(false);
         highScoreLabel.SetActive(false);
-        Time.timeScale = 1;
+        Time.timeScale = 1f;
     }
 
     public void PauseGame()
@@ -70,6 +77,6 @@ public class GameManager : MonoBehaviour {
         pausePanel.SetActive(false);
         highScore.SetActive(false);
         highScoreLabel.SetActive(false);
-        Time.timeScale = 1;
+        Time.timeScale = 1f;
     }
 }

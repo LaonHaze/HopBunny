@@ -4,25 +4,24 @@ using UnityEngine;
 
 public class Jumping : MonoBehaviour {
 
-    public float jumpForce = 15f;
+    public float jumpForce;
     public int score = 10;
-    public GameObject platformDet;
     Rigidbody2D rb;
     Animator bunnyanim;
 
     void Update()
     {
-        if(transform.position.y < (Camera.main.gameObject.transform.position.y - 8f))
+        if(transform.position.y < (Camera.main.gameObject.transform.position.y - 10f))
         {
             gameObject.SetActive(false);
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        rb = collision.collider.GetComponent<Rigidbody2D>();
-        bunnyanim = collision.collider.GetComponentInChildren<Animator>();
-        float relativevel = collision.relativeVelocity.y;
+        rb = collision.GetComponent<Rigidbody2D>();
+        bunnyanim = collision.GetComponentInChildren<Animator>();
+        float relativevel = rb.velocity.y;
 
         if (rb != null)
         {
@@ -32,16 +31,15 @@ public class Jumping : MonoBehaviour {
 
     IEnumerator JumpAnim(float relativevel)
     {
-        if(relativevel <= 0f)
+        if (relativevel < 0f)
         {
             bunnyanim.SetTrigger("touchDown");
         }
-        yield return new WaitForSeconds(seconds: 0.225f);
+        ScoreManager.setScore(score);
+        yield return new WaitForSeconds(seconds: 0.1125f);
         Vector2 velocity = rb.velocity;
         velocity.y = jumpForce;
         rb.velocity = velocity;
         gameObject.SetActive(false);
-        ScoreManager.setScore(score);
-        
     }
 }
