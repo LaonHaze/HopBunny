@@ -7,6 +7,7 @@ public class ScoreManager : MonoBehaviour {
     static int score;
     public Text scoreText;
     public Text highScoreText;
+    public GooglePlayServices playServices;
 
     private static int highScore;
     private static bool doubleUp;
@@ -75,6 +76,7 @@ public class ScoreManager : MonoBehaviour {
     public static void saveHighScore()
     {
         PlayerPrefs.SetInt("highestScore", highScore);
+        GooglePlayServices.OnAddScoreToLeaderBoard(highScore);
     }
 
     void Update()

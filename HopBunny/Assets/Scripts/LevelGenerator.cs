@@ -9,17 +9,19 @@ public class LevelGenerator : MonoBehaviour {
     public float lvlWidth = 3.5f;
     public float minY = 1.5f;
     public float maxY = 2f;
+
+    private float enemyProb = 16f;
     
 	void Update () {
         if(transform.position.y < genPoint.position.y)
         {
             float rand = Random.Range(0f, 100f);
 
-            if (rand > 85)
+            if (rand < 15)
             {
                 SpawnSpec();
             }
-            else if (rand < 20)
+            else if (rand < enemyProb)
             {
                 SpawnEnemy();
             } else
@@ -32,6 +34,10 @@ public class LevelGenerator : MonoBehaviour {
 
     private void SpawnSpec()
     {
+        if (enemyProb < 25)
+        {
+            enemyProb += 0.1f;
+        }
         Vector3 spawnPosition = transform.position;
         spawnPosition.y += Random.Range(1.5f, 2f);
         spawnPosition.x = Random.Range(-lvlWidth, lvlWidth);
@@ -45,6 +51,7 @@ public class LevelGenerator : MonoBehaviour {
 
     private void SpawnEnemy()
     {
+        enemyProb = 16f;
         Vector3 spawnPosition = transform.position;
         spawnPosition.y += Random.Range(2f, 2.5f);
         spawnPosition.x = Random.Range(-lvlWidth, lvlWidth);
@@ -58,6 +65,10 @@ public class LevelGenerator : MonoBehaviour {
 
     private void SpawnItem()
     {
+        if (enemyProb < 25)
+        {
+            enemyProb += 0.1f;
+        }
         Vector3 spawnPosition = transform.position;
         spawnPosition.y += Random.Range(minY, maxY);
         spawnPosition.x = Random.Range(-lvlWidth, lvlWidth);

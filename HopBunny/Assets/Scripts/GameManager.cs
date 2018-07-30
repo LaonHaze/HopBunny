@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour {
     public GameObject highScore;
     public GameObject highScoreLabel;
     public GameObject startPanel;
+    public GameObject instructions;
 
     private Vector3 startPointPlayer;
     private Vector3 startPointGen;
@@ -61,20 +62,21 @@ public class GameManager : MonoBehaviour {
         startPanel.SetActive(false);
         highScore.SetActive(false);
         highScoreLabel.SetActive(false);
+        instructions.SetActive(false);
         Time.timeScale = 1f;
     }
 
     public void PauseGame()
     {
         Time.timeScale = 0;
-        pausePanel.SetActive(true);
+        startPanel.SetActive(true);
         highScore.SetActive(true);
         highScoreLabel.SetActive(true);
     }
 
     public void ResumeGame()
     {
-        pausePanel.SetActive(false);
+        startPanel.SetActive(false);
         highScore.SetActive(false);
         highScoreLabel.SetActive(false);
         Time.timeScale = 1f;

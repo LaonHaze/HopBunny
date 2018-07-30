@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     Vector3 screenMax;
     private float movement;
     public float speed;
-    private float transpeed = 4f;
+    private float transpeed = 20f;
     private float ScreenWidth;
     private float buffTime;
     Vector3 playerSize;
