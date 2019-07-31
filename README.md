@@ -1,4 +1,4 @@
 # HopBunny
 Infinite jumper game
 
-Built Using Unity 3D Engine
+Built Using Unity 3D Engine for Android
